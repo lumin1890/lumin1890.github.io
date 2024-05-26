@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lee DongJun's Web Site</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("h1").hover(
+                function () { $(this).css({ color: 'orange' }); },
+                function () { $(this).css({ color: 'black' }); }
+            );
+
+            $("h1:first-of-type").click(function () {
+                if ($(".new-page2").is(":visible")) {
+                    $(".new-page2").hide();
+                    $(".new-page1").show();
+                } else if ($(".new-page1").is(":visible")) {
+                    $(".new-page1").hide();
+                    $(".container").show();
+                } else if ($(".container").is(":visible")) {
+                    $(".container").hide();
+                    $(".new-page2").show();
+                }
+            });
+
+            $("h1:last-of-type").click(function () {
+                if ($(".container").is(":visible")) {
+                    $(".container").hide();
+                    $(".new-page1").show();
+                } else if ($(".new-page1").is(":visible")) {
+                    $(".new-page1").hide();
+                    $(".new-page2").show();
+                } else if ($(".new-page2").is(":visible")) {
+                    $(".new-page2").hide();
+                    $(".container").show();
+                }
+            });
+
+            $(".top_bar span").click(function () {
+                $(".new-page1, .new-page2").hide();
+                $(".container").show();
+            });
+        });
+
+    </script>
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 70px;
+        }
+
+        .top_bar {
+            font-family: 'Times New Roman', Times, serif;
+            background: rgba(0, 0, 0, 0.957);
+            color: ivory;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 70px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: 300;
+        }
+
+        .bottom_bar {
+            background: rgba(227, 223, 224, 0.957);
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+        }
+
+        .bottom_bar button {
+            font-size: 20px;
+            margin: 0 10px
+        }
+
+        .container, .container2, .container2-2, .container3 {
+            margin-top: 100px;
+            margin-left: 50px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .container img, .container2 img, .container2-2 img, .container3 img {
+            max-width: 25%;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .container2-2 img.right {
+            float: right;
+            max-width: 70%;
+            margin-left: 20px;
+            margin-right: 0px;
+        }
+
+        .text {
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        .text.second-paragraph {
+            max-width: 600px;
+            text-align: justify;
+            margin-left: 0;
+        }
+
+        .top_bar span {
+            cursor: pointer;
+        }
+        
+        @media screen and (min-width: 768px) {
+            .container2-2 img.right {
+            max-width: 25%;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+
+            .container, .container2, .container2-2, .container3 {
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0;
+            }
+
+            .container img,.container2 img, .container2-2 img, .container3 img {
+                max-width: 70%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .container2, .container2-2 {
+            margin: 0 20px; 
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+            .container2 img.right {
+                float: none;
+                max-width: 70%;
+                width: auto;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 20px;
+                }
+
+            .container2-2 .text.second-paragraph {
+                text-align: justify;
+                max-width: 90%;
+                }
+
+            .text {
+                text-align: justify;
+                max-width: 90%;
+                }
+            .container2-2 {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top_bar"><span>DONGJUN LEE</span></div>
+    <div class="container">
+        <img src="eiffel-photo.jpg" alt="Eiffel Tower">
+        <div class="text">
+            <h3>Introducing</h3>
+            <p>I am a student in the Department of Computer Engineering at Kangwon National University, South Korea.
+                I was born in Jinju 2000, and lived in Yongin for 14 years. I graduated Suji high school in 2019. I studied at Gangnam Daesung for a year. I completed my duty of national defence as an Korea Airforce soldier 826th.
+                I was satisfied with my military life, therefore I took the Korea Airforce Academy test, and I passed the test, but I applied computer engineering department because I wanted tp learn more about computers that I was not good at in a society where computers and AI technologie became important.
+                I want to study more about network field in the future.
+            </p>
+            <br>
+            <div class="ui labels" style="margin-top: 15px">
+                <a class="ui label" href="mailto:lumin1890@gmail.com" target="_blank">lumin1890@gmail.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_bar">
+        <h1>&lt;</h1>
+        <div>&emsp;&emsp;</div>
+        <h1>&gt;</h1>
+    </div>
+
+    <div class="new-page1" style="display: none;">
+        <div class="container2">
+            <img src="studying-photo.png" alt="study">
+            <div class="text">
+                <h3>Learning Experience</h3>
+                <p>Before high school, I studied English at a language school. There, I studied TOEFL, but in the process, I learned many English words and studied grammar. There is a listening, speaking, writing, and reading section in the TOEFL test, and while studying the listening section, my ears to listen to English improved. And in the reading section, my fingerprints came out and disappeared for a certain period of time, so I had to brainstorm, but I was able to develop my ability to organize in other subjects by practicing brainstorming. In high school, I studied hard for the SAT. In particular, since I am in the department of science, I studied math hard, listened to lectures at the academy, and solved many problems with reviews. Since I was better in liberal arts than in science subjects, I spent more time on math. I joined a physics club, practiced about aliasing and Arduino, and toured KARI in Daejeon.</p>
+            </div>
+        </div>
+        <div class="container2-2">
+            <div class="text second-paragraph">
+                <p>In university, I studied computer engineering, so I practiced programming.
+                    When I was a freshman, I studied JAVA and C language, but it was too difficult for me maybe because I had never encountered a programming language, and I practiced constantly using Baekjun Onlinejudge. As I practiced, I kept thinking to make programming more efficient, and I was able to develop my ability to think logically.
+                    During vacation, I studied computer graphics and linear algebra used for data processing in advance, and I was able to understand it more smoothly while taking linear algebra in the first semester of my second year. I also want to study a second language individually, so I am studying French. I was able to speak simple French after going to France. In the future, I plan to take courses such as data communication, computer security, and network programming to advance into the network field.</p>
+                </div>
+            <img src="program-photo.png" alt="language" class="right">
+        </div>
+    </div>
+
+    <div class="new-page2" style="display: none;">
+        <div class="container3">
+            <img src="arsenal-photo.jpg" alt="arsenal">
+            <div class="text">
+                <h3>Interests and Hobbies</h3>
+                <p>I like to have new experiences. Especially, I enjoy meeting new people and encounter various cultures through traveling. This is because traveling gives me a chance to see and understand the world as well as relaxation. I saw, felt, and enjoyed the culture of that country while traveling around the world including Japan, Italy, Switzerland, England, Belgium, the Netherlands, Germany, France, and so on. I like to play soccer both playing soccer and watching it, but in the past, I mainly played as a central defender. The team I support is Arsenal FC and it has been 10 years since I supported them. I was very moved when I visited the Emirates Stadium in winter 2024.. I like to play online games, and there are not many things that kill time as much as meeting a friend and playing online games</p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
